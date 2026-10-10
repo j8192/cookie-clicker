@@ -1,0 +1,238 @@
+<html>
+
+<head>
+    <title>
+        cookie clicker
+    </title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        .brown-border {
+            border-radius: 10px;
+            border-color: brown;
+            border-style: solid;
+        }
+
+        .align-right {
+            display: flex;
+            justify-content:end;
+        }
+
+        body {
+            background-color: blue;
+            font-family: Arial, Helvetica, sans-serif;
+            display: grid;
+            grid-template-columns: 2fr 2fr 1fr;
+            grid-template-rows: 6rem auto;
+            color: white;
+            margin: 0;
+        }
+
+        #clicker {
+            grid-row: 1 / 3;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        @media (min-width: 1000px) {
+            #clicker {
+                font-size: 2rem;
+                padding: 2rem;
+            }
+        }
+
+        @media (min-width: 1500px) {
+            #clicker {
+                font-size: 4rem;
+                padding: 4rem;
+            }
+        }
+
+
+
+        #amount {
+            grid-row: 1 / 3;
+            font-size: 2rem;
+        }
+
+        #upgrades {}
+
+        #achievments {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: min-content auto min-content;
+
+            #achievmentlist {
+                grid-column: 1 / 3;
+                overflow-y: auto;
+
+                .achievment {
+                    border-color: white;
+                    border-radius: 10px;
+                    border-style: solid;
+                    display: none;
+
+                    +.achievment {
+                        margin-top: 1rem;
+                    }
+                }
+            }
+
+        }
+
+        @media (min-width: 1000px) {
+            #achievments {
+                font-size: 2rem;
+            }
+        }
+
+        #cheating {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #messages {
+            position: absolute;
+            background-color: black;
+            box-shadow: 10px 10px 100px 0px black;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            padding: 1rem 2rem;
+        }
+
+
+
+        #cheatmenu {
+            border-radius: 10px;
+            border-color: black;
+            border-style: solid;
+        }
+
+        #cookie {
+            width: 100%;
+        }
+
+        #cookies {
+            color: white;
+            text-align: center;
+        }
+
+        #amountdouble,
+        #amountops,
+        #clearachievments,
+        #ops,
+        #cheat {
+            display: none;
+        }
+        #cpsdiv {            
+            text-align: center;
+        }
+        #messagetitle {            
+            font-size: 2rem;
+        }
+        #messagediscription {
+            color: lightgray;
+        }
+        #achievmentstotal {
+            color: lightgrey;
+            white-space: nowrap;
+        }
+        body.rewarding {
+            background: radial-gradient(circle, white 0%, gold 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="clicker">
+        <output id="cookies"></output>
+        <img id="cookie" src="image.png">
+        <div id="cpsdiv"><output id="cps"></output> cookies per second!</div>
+    </div>
+    <div id="amount" class="brown-border">
+        <div id="amountdouble">
+            amount of double clicks: <output id="amountdoublenumber"></output>
+        </div>
+        <br>
+        <div id="amountops">
+            amount of automatic clickers: <output id="amountopsnumber"></output>
+        </div>
+    </div>
+    <div id="upgrades" class="brown-border">
+        <button id="double">
+            double clicks
+            <br>
+            cost: <output id="doubleCost"></output> cookies
+        </button>
+        <br>
+        <button id="ops">
+            automatic clickers
+            <br>
+            cost: <output id="opscost"></output> cookies
+        </button>
+    </div>
+    <div id="achievments" class="brown-border">
+        <span>achievments</span>
+        <output id="achievmentstotal"></output>
+        <div id="achievmentlist">
+            <div class="achievment" id="infiniteachievment">assending into the unbelievable!</div>
+            <div class="achievment" id="cheatachievment">cheated cookies taste awful!</div>
+            <div class="achievment" id="robber">caught red handed!</div>
+            <div class="achievment" id="liner">double liner!</div>
+            <div class="achievment" id="broken">broken finger!</div>
+            <div class="achievment" id="repaired">repaired yet?</div>
+            <div class="achievment" id="breaker">game breaker!</div>
+        </div>
+        <div>
+            <button id="clearachievments">clear achievments</button>
+        </div>
+        <div class="align-right">
+            <button id="cheatopen">open debug menu</button>
+        </div>
+    </div>
+
+    <div id="cheating">
+        <div id="cheatmenu">
+            <div id="password">
+                password:
+                <br>
+                <input id="tryme">
+                <br>
+                <button id="confirm">
+                    confirm
+                </button>
+            </div>
+            <div id="cheat">
+                <button id="infinite">
+                    infinite cookies
+                </button>
+                <br>
+                <button id="set">
+                    set cookies
+                </button>
+                <br>
+                amount to set to:
+                <br>
+                <input id="setamount">
+                <br>
+                <button id="close">
+                    close
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="messages" class="brown-border"><output id="messagetitle"></output><br><output
+            id="messagediscription"></output></div>
+    <!-- <img id="reward" src="image.svg" width="1000" height="2000"> -->
+    <button id="test" style="position:absolute;">placeholder</button>
+    <script src="game.js"></script>
+</body>
+
+</html>
